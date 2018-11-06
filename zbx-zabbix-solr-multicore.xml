@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
-    <version>2.0</version>
+    <version>3.0</version>
     <date>2015-04-29T14:56:54Z</date>
     <groups>
         <group>
@@ -9,8 +9,8 @@
     </groups>
     <templates>
         <template>
-            <template>Template_SVC_SOLR</template>
-            <name>Template_SVC_SOLR</name>
+            <template>SOLR_JMX_V7.5</template>
+            <name>SOLR_JMX_V7.5</name>
             <description/>
             <groups>
                 <group>
@@ -834,6 +834,24 @@
                                 <operator>8</operator>
                                 <formulaid>A</formulaid>
                             </condition>
+                            <condition>
+                                <macro>{#SHARD_NAME}</macro>
+                                <value>.*</value>
+                                <operator>8</operator>
+                                <formulaid>B</formulaid>
+                            </condition>
+                            <condition>
+                                <macro>{#REPLICA_NAME}</macro>
+                                <value>.*</value>
+                                <operator>8</operator>
+                                <formulaid>C</formulaid>
+                            </condition>
+                            <condition>
+                                <macro>{#COLLECTION}</macro>
+                                <value>.*</value>
+                                <operator>8</operator>
+                                <formulaid>D</formulaid>
+                            </condition>
                         </conditions>
                     </filter>
                     <lifetime>30</lifetime>
@@ -845,7 +863,7 @@
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>jmx[&quot;solr/{#CORENAME}:type=documentCache,id=org.apache.solr.search.LRUCache&quot;,&quot;hitratio&quot;]</key>
+                            <key>jmx[&quot;solr:category=CACHE,dom1=core,dom2={#COLLECTION},dom3={#SHARD_NAME},dom4={#REPLICA_NAME},name=documentCache,scope=searcher&quot;,&quot;hitratio&quot;]</key>
                             <delay>600</delay>
                             <history>7</history>
                             <trends>365</trends>
@@ -888,7 +906,7 @@
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>jmx[&quot;solr/{#CORENAME}:type=documentCache,id=org.apache.solr.search.LRUCache&quot;,&quot;evictions&quot;]</key>
+                            <key>jmx[&quot;solr:category=CACHE,dom1=core,dom2={#COLLECTION},dom3={#SHARD_NAME},dom4={#REPLICA_NAME},name=documentCache,scope=searcher&quot;,&quot;evictions&quot;]</key>
                             <delay>600</delay>
                             <history>7</history>
                             <trends>365</trends>
@@ -931,7 +949,7 @@
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>jmx[&quot;solr/{#CORENAME}:type=documentCache,id=org.apache.solr.search.LRUCache&quot;,&quot;hits&quot;]</key>
+                            <key>jmx[&quot;solr:category=CACHE,dom1=core,dom2={#COLLECTION},dom3={#SHARD_NAME},dom4={#REPLICA_NAME},name=documentCache,scope=searcher&quot;,&quot;hits&quot;]</key>
                             <delay>600</delay>
                             <history>7</history>
                             <trends>365</trends>
@@ -974,7 +992,7 @@
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>jmx[&quot;solr/{#CORENAME}:type=documentCache,id=org.apache.solr.search.LRUCache&quot;,&quot;inserts&quot;]</key>
+                            <key>jmx[&quot;solr:category=CACHE,dom1=core,dom2={#COLLECTION},dom3={#SHARD_NAME},dom4={#REPLICA_NAME},name=documentCache,scope=searcher&quot;,&quot;inserts&quot;]</key>
                             <delay>600</delay>
                             <history>7</history>
                             <trends>365</trends>
@@ -1017,7 +1035,7 @@
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>jmx[&quot;solr/{#CORENAME}:type=searcher,id=org.apache.solr.search.SolrIndexSearcher&quot;,&quot;numDocs&quot;]</key>
+                            <key>jmx[&quot;solr:category=SEARCHER,dom1=core,dom2={#COLLECTION},dom3={#SHARD_NAME},dom4={#REPLICA_NAME},name=numDocs,scope=searcher&quot;,&quot;Value&quot;]</key>
                             <delay>600</delay>
                             <history>7</history>
                             <trends>365</trends>
@@ -1060,7 +1078,7 @@
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>jmx[&quot;solr/{#CORENAME}:type=filterCache,id=org.apache.solr.search.FastLRUCache&quot;,&quot;evictions&quot;]</key>
+                            <key>jmx[&quot;solr:category=CACHE,dom1=core,dom2={#COLLECTION},dom3={#SHARD_NAME},dom4={#REPLICA_NAME},name=filterCache,scope=searcher&quot;,&quot;evictions&quot;]</key>
                             <delay>600</delay>
                             <history>7</history>
                             <trends>365</trends>
@@ -1103,7 +1121,7 @@
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>jmx[&quot;solr/{#CORENAME}:type=filterCache,id=org.apache.solr.search.FastLRUCache&quot;,&quot;hitratio&quot;]</key>
+                            <key>jmx[&quot;solr:category=CACHE,dom1=core,dom2={#COLLECTION},dom3={#SHARD_NAME},dom4={#REPLICA_NAME},name=filterCache,scope=searcher&quot;,&quot;hitratio&quot;]</key>
                             <delay>600</delay>
                             <history>7</history>
                             <trends>365</trends>
@@ -1146,7 +1164,7 @@
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>jmx[&quot;solr/{#CORENAME}:type=filterCache,id=org.apache.solr.search.FastLRUCache&quot;,&quot;inserts&quot;]</key>
+                            <key>jmx[&quot;solr:category=CACHE,dom1=core,dom2={#COLLECTION},dom3={#SHARD_NAME},dom4={#REPLICA_NAME},name=filterCache,scope=searcher&quot;,&quot;inserts&quot;]</key>
                             <delay>600</delay>
                             <history>7</history>
                             <trends>365</trends>
@@ -1189,7 +1207,7 @@
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>jmx[&quot;solr/{#CORENAME}:type=queryResultCache,id=org.apache.solr.search.LRUCache&quot;,&quot;hits&quot;]</key>
+                            <key>jmx[&quot;solr:category=CACHE,dom1=core,dom2={#COLLECTION},dom3={#SHARD_NAME},dom4={#REPLICA_NAME},name=queryResultCache,scope=searcher&quot;,&quot;hits&quot;]</key>
                             <delay>600</delay>
                             <history>7</history>
                             <trends>365</trends>
@@ -1232,7 +1250,7 @@
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>jmx[&quot;solr/{#CORENAME}:type=/select,id=org.apache.solr.handler.component.SearchHandler&quot;,&quot;avgTimePerRequest&quot;]</key>
+                            <key>jmx[&quot;solr:category=QUERY,dom1=core,dom2={#COLLECTION},dom3={#SHARD_NAME},dom4={#REPLICA_NAME},name=requestTimes,scope=/select&quot;,&quot;Mean&quot;]</key>
                             <delay>600</delay>
                             <history>7</history>
                             <trends>365</trends>
@@ -1275,7 +1293,7 @@
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>jmx[&quot;solr/{#CORENAME}:type=/select,id=org.apache.solr.handler.component.SearchHandler&quot;,&quot;avgRequestsPerSecond&quot;]</key>
+                            <key>jmx[&quot;solr:category=QUERY,dom1=core,dom2={#COLLECTION},dom3={#SHARD_NAME},dom4={#REPLICA_NAME},name=requestTimes,scope=/select&quot;,&quot;MeanRate&quot;]</key>
                             <delay>600</delay>
                             <history>7</history>
                             <trends>365</trends>
@@ -1318,7 +1336,7 @@
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>jmx[&quot;solr/{#CORENAME}:type=/select,id=org.apache.solr.handler.component.SearchHandler&quot;,&quot;requests&quot;]</key>
+                            <key>jmx[&quot;solr:category=QUERY,dom1=core,dom2={#COLLECTION},dom3={#SHARD_NAME},dom4={#REPLICA_NAME},name=requestTimes,scope=/select&quot;,&quot;Count&quot;]</key>
                             <delay>600</delay>
                             <history>7</history>
                             <trends>365</trends>
@@ -1361,7 +1379,7 @@
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>jmx[&quot;solr/{#CORENAME}:type=/select,id=org.apache.solr.handler.component.SearchHandler&quot;,&quot;timeouts&quot;]</key>
+                            <key>jmx[&quot;solr:category=QUERY,dom1=core,dom2={#COLLECTION},dom3={#SHARD_NAME},dom4={#REPLICA_NAME},name=timeouts,scope=/select&quot;,&quot;MeanRate&quot;]</key>
                             <delay>600</delay>
                             <history>7</history>
                             <trends>365</trends>
@@ -1404,7 +1422,7 @@
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>jmx[&quot;solr/{#CORENAME}:type=/select,id=org.apache.solr.handler.component.SearchHandler&quot;,&quot;5minRateReqsPerSecond&quot;]</key>
+                            <key>jmx[&quot;solr:category=QUERY,dom1=core,dom2={#COLLECTION},dom3={#SHARD_NAME},dom4={#REPLICA_NAME},name=requestTimes,scope=/select&quot;,&quot;FiveMinuteRate&quot;]</key>
                             <delay>600</delay>
                             <history>7</history>
                             <trends>365</trends>
@@ -1447,7 +1465,7 @@
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>jmx[&quot;solr/{#CORENAME}:type=/select,id=org.apache.solr.handler.component.SearchHandler&quot;,&quot;errors&quot;]</key>
+                            <key>jmx[&quot;solr:category=QUERY,dom1=core,dom2={#COLLECTION},dom3={#SHARD_NAME},dom4={#REPLICA_NAME},name=errors,scope=/select&quot;,&quot;Count&quot;]</key>
                             <delay>600</delay>
                             <history>7</history>
                             <trends>365</trends>
@@ -1456,49 +1474,6 @@
                             <allowed_hosts/>
                             <units/>
                             <delta>1</delta>
-                            <snmpv3_contextname/>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                            <snmpv3_privpassphrase/>
-                            <formula>1</formula>
-                            <delay_flex/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <data_type>0</data_type>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description/>
-                            <inventory_link>0</inventory_link>
-                            <applications>
-                                <application>
-                                    <name>Solr</name>
-                                </application>
-                            </applications>
-                            <valuemap/>
-                            <logtimefmt/>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>{#CORENAME} - Select - medianRequestTime</name>
-                            <type>16</type>
-                            <snmp_community/>
-                            <multiplier>0</multiplier>
-                            <snmp_oid/>
-                            <key>jmx[&quot;solr/{#CORENAME}:type=/select,id=org.apache.solr.handler.component.SearchHandler&quot;,&quot;medianRequestTime&quot;]</key>
-                            <delay>600</delay>
-                            <history>7</history>
-                            <trends>365</trends>
-                            <status>0</status>
-                            <value_type>0</value_type>
-                            <allowed_hosts/>
-                            <units/>
-                            <delta>0</delta>
                             <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
@@ -1556,8 +1531,8 @@
                                     <calc_fnc>2</calc_fnc>
                                     <type>0</type>
                                     <item>
-                                        <host>Template_SVC_SOLR</host>
-                                        <key>jmx[&quot;solr/{#CORENAME}:type=/select,id=org.apache.solr.handler.component.SearchHandler&quot;,&quot;5minRateReqsPerSecond&quot;]</key>
+                                        <host>SOLR_JMX_V7.5</host>
+                                        <key>jmx[&quot;solr:category=QUERY,dom1=core,dom2={#COLLECTION},dom3={#SHARD_NAME},dom4={#REPLICA_NAME},name=requestTimes,scope=/select&quot;,&quot;FiveMinuteRate&quot;]</key>
                                     </item>
                                 </graph_item>
                             </graph_items>
@@ -1573,7 +1548,7 @@
     </templates>
     <triggers>
         <trigger>
-            <expression>{Template_SVC_SOLR:proc.num[java,,,start.jar].max(300)}=0</expression>
+            <expression>{SOLR_JMX_V7.5:proc.num[java,,,start.jar].max(300)}=0</expression>
             <name>SOLR is not running</name>
             <url/>
             <status>0</status>

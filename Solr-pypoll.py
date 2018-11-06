@@ -5,8 +5,8 @@ import urllib
 import xml.etree.ElementTree as ET
 import json
 
-fqdn = 'http://127.0.0.1:8888/'
-uri = 'solr4/admin/cores?action=STATUS'
+fqdn = 'http://localhost:8983/solr/'
+uri = 'admin/cores?action=STATUS&wt=xml'
 
 def main():
     
@@ -16,7 +16,13 @@ def main():
     tree = ET.fromstring(resp)
     for lst in tree.findall("lst"):
         for lst2 in lst.findall("lst"):
-            core={"{#CORENAME}":lst2.attrib['name']}
+            name=lst2.attrib['name'];
+            core={}
+            nameSplit=name.split("_",2)
+            core["{#CORENAME}"]=name;
+            core["{#SHARD_NAME}"]=nameSplit[1];
+            core["{#REPLICA_NAME}"]=nameSplit[2];
+            core["{#COLLECTION}"]=nameSplit[0];
             data.append(core)
    
     print  json.dumps({"data": data})
