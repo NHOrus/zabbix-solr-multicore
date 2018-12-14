@@ -18,7 +18,7 @@ def main():
     for lst in tree.findall("lst"):
         for lst2 in lst.findall("lst"):
             name=lst2.attrib['name'];
-            nameSplit = re.match('([0-9a-zA-Z]+)_(shard\d+|shard\d+_\d+)_(replica\w+)',name)
+            nameSplit = re.match('^([^_]+)_(shard.*)_(replica\w+)$',name)
             core={}
             core["{#CORENAME}"]=name;
             core["{#COLLECTION}"]=nameSplit.group(1);
