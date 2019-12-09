@@ -4,6 +4,7 @@
 import urllib
 import xml.etree.ElementTree as ET
 import json
+import re
 
 fqdn = 'http://localhost:8983/solr/'
 uri = 'admin/cores?action=STATUS&wt=xml'
@@ -17,12 +18,12 @@ def main():
     for lst in tree.findall("lst"):
         for lst2 in lst.findall("lst"):
             name=lst2.attrib['name'];
+            nameSplit = re.match('^([^_]+)_(shard.*)_(replica\w+)$',name)
             core={}
-            nameSplit=name.split("_",2)
             core["{#CORENAME}"]=name;
-            core["{#SHARD_NAME}"]=nameSplit[1];
-            core["{#REPLICA_NAME}"]=nameSplit[2];
-            core["{#COLLECTION}"]=nameSplit[0];
+            core["{#COLLECTION}"]=nameSplit.group(1);
+            core["{#SHARD_NAME}"]=nameSplit.group(2);
+            core["{#REPLICA_NAME}"]=nameSplit.group(3);
             data.append(core)
    
     print  json.dumps({"data": data})

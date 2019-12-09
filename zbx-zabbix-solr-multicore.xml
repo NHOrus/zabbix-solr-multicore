@@ -899,6 +899,7 @@
                             </applications>
                             <valuemap/>
                             <logtimefmt/>
+			    <application_prototypes/>
                         </item_prototype>
                         <item_prototype>
                             <name>{#CORENAME} - Document Cache - evictions</name>
@@ -942,6 +943,7 @@
                             </applications>
                             <valuemap/>
                             <logtimefmt/>
+			    <application_prototypes/>
                         </item_prototype>
                         <item_prototype>
                             <name>{#CORENAME} - Document Cache - hits per seconds</name>
@@ -985,6 +987,7 @@
                             </applications>
                             <valuemap/>
                             <logtimefmt/>
+			    <application_prototypes/>
                         </item_prototype>
                         <item_prototype>
                             <name>{#CORENAME} - Document Cache - inserts per seconds</name>
@@ -1028,6 +1031,7 @@
                             </applications>
                             <valuemap/>
                             <logtimefmt/>
+			    <application_prototypes/>
                         </item_prototype>
                         <item_prototype>
                             <name>{#CORENAME} - Document Count</name>
@@ -1071,6 +1075,7 @@
                             </applications>
                             <valuemap/>
                             <logtimefmt/>
+			    <application_prototypes/>
                         </item_prototype>
                         <item_prototype>
                             <name>{#CORENAME} - Filter Cache - evictions per seconds</name>
@@ -1114,6 +1119,7 @@
                             </applications>
                             <valuemap/>
                             <logtimefmt/>
+			    <application_prototypes/>
                         </item_prototype>
                         <item_prototype>
                             <name>{#CORENAME} - Filter Cache - hitratio</name>
@@ -1157,6 +1163,7 @@
                             </applications>
                             <valuemap/>
                             <logtimefmt/>
+			    <application_prototypes/>
                         </item_prototype>
                         <item_prototype>
                             <name>{#CORENAME} - Filter Cache - inserts per seconds</name>
@@ -1200,6 +1207,7 @@
                             </applications>
                             <valuemap/>
                             <logtimefmt/>
+			    <application_prototypes/>
                         </item_prototype>
                         <item_prototype>
                             <name>{#CORENAME} - queryResultCache - $2 per seconds</name>
@@ -1243,6 +1251,7 @@
                             </applications>
                             <valuemap/>
                             <logtimefmt/>
+			    <application_prototypes/>
                         </item_prototype>
                         <item_prototype>
                             <name>{#CORENAME} - Select - $2</name>
@@ -1286,6 +1295,7 @@
                             </applications>
                             <valuemap/>
                             <logtimefmt/>
+			    <application_prototypes/>
                         </item_prototype>
                         <item_prototype>
                             <name>{#CORENAME} - Select - $2</name>
@@ -1329,6 +1339,7 @@
                             </applications>
                             <valuemap/>
                             <logtimefmt/>
+			    <application_prototypes/>
                         </item_prototype>
                         <item_prototype>
                             <name>{#CORENAME} - Select - $2 per seconds</name>
@@ -1372,6 +1383,7 @@
                             </applications>
                             <valuemap/>
                             <logtimefmt/>
+			    <application_prototypes/>
                         </item_prototype>
                         <item_prototype>
                             <name>{#CORENAME} - Select - $2 per seconds</name>
@@ -1415,6 +1427,7 @@
                             </applications>
                             <valuemap/>
                             <logtimefmt/>
+			    <application_prototypes/>
                         </item_prototype>
                         <item_prototype>
                             <name>{#CORENAME} - Select - 5minRateReqsPerSecond</name>
@@ -1458,6 +1471,7 @@
                             </applications>
                             <valuemap/>
                             <logtimefmt/>
+			    <application_prototypes/>
                         </item_prototype>
                         <item_prototype>
                             <name>{#CORENAME} - Select - errors per seconds</name>
@@ -1501,6 +1515,7 @@
                             </applications>
                             <valuemap/>
                             <logtimefmt/>
+			    <application_prototypes/>
                         </item_prototype>
                     </item_prototypes>
                     <trigger_prototypes/>
